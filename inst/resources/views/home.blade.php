@@ -7,15 +7,18 @@
         <img src="https://cdn.worldvectorlogo.com/logos/instagram-circle.svg" class="rounded-circle  "style="height: 150px;"> 
     </div>
     <div class="col-3 pt-3">
-    <div><h1><?=$user=>username?></h1></div>
+    <div class="d-flex justify-content-between  align-items-baseline">
+        <h1><?=$user->username?></h1>
+        <a href="#">add new post</a>
+    </div>
         <div class="d-flex">
             <div class="pr-5"><strong>123k</strong>post</div>
             <div class="pr-5"><strong>123k</strong>followrs</div>
             <div class="pr-5"><strong>123k</strong>following</div>
         </div>
-        <div class="pt-4 font-weight-bold">inting.com</div>
-        <div>ay 7aga fe ay 7eyasdjllakshdlkasdjkljaskldjaslkdalskdj</div>
-        <div><a href="#">www.inting.com</a></div>
+        <div class="pt-4 font-weight-bold"><?=$user->profile->title?></div>
+        <div><?=$user->profile->description?></div>
+        <div><a href="#"><?=$user->profile->url?></a></div>
     </div>   
   </div>
   <div class="row pt-5">
