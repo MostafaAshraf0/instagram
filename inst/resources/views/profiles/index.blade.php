@@ -4,14 +4,24 @@
 <div class="container">
 <div class="row">
     <div class="col-3 p-5">
-        <img src="https://cdn.worldvectorlogo.com/logos/instagram-circle.svg" class="rounded-circle  "style="height: 150px;"> 
+        <img src="/storage/<?=$user->profile->image?>" class="rounded-circle  w-100"> 
     </div>
     <div class="col-3 pt-3">
     <div class="d-flex justify-content-between  align-items-baseline">
         <h1><?=$user->username?></h1>
-        <a href="/p/create">add new post</a>
-        <a href="/profile/<?=$user->id?>/edit">Edit Profile</a>
+        
+        @can('update', $user->profile)
+       
+        <a href="/p/create">add new post</a>    
+        @endcan
+        
+
+       
     </div>
+     @can('update', $user->profile)
+        <a href="/profile/<?=$user->id?>/edit">Edit Profile</a>
+            
+        @endcan
         <div class="d-flex">
             <div class="pr-5"><strong class="pr-1"><?=$user->posts->count()?></strong>post</div>
             <div class="pr-5"><strong class="pr-1">123k</strong>followrs</div>
