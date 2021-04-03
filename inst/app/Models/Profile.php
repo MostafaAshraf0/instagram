@@ -11,7 +11,8 @@ class Profile extends Model
 
     public function profileImage()
     {
-        return ($this->image) ? 'storage' . $this->image : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png';
+        $imagePath = ($this->image) ? $this->image : 'profile/ixVbXWS91ppeb42yPvfiHb7rS4LbycfBSKPjC7f4.png';
+        return  '/storage/' . $imagePath;
     }
 
     public function user()
