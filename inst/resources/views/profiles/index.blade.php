@@ -11,7 +11,7 @@
         <div class="d-flex align-items-center pb-3">
             <div class="h4"><?=$user->username?></div>
 
-        <follow-button user-id="<?=$user->id?>"></follow-button>
+        <follow-button user-id="<?=$user->id?>" follows="<?=$follows?>"></follow-button>
         
         </div>
         @can('update', $user->profile)
@@ -27,15 +27,18 @@
             
         @endcan
         <div class="d-flex">
-            <div class="pr-5"><strong class="pr-1"><?=$user->posts->count()?></strong>post</div>
-            <div class="pr-5"><strong class="pr-1">123k</strong>followrs</div>
-            <div class="pr-5"><strong class="pr-1">123k</strong>following</div>
+            <div class="pr-5"><strong class="pr-1"><?=$postCount?></strong>post</div>
+            <div class="pr-5"><strong class="pr-1"><?=$followersCount?></strong>followrs</div>
+            <div class="pr-5"><strong class="pr-1"><?=$followingCount?></strong>following</div>
         </div>
         <div class="pt-4 font-weight-bold"><?=$user->profile->title?></div>
         <div><?=$user->profile->description?></div>
         <div><a href="#"><?=$user->profile->url?></a></div>
     </div>   
   </div>
+
+  <hr>
+
   <div class="row pt-5">
       @foreach ($user->posts as $post)
       <div class="col-4 pb-4">

@@ -2,6 +2,7 @@
  
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Mail\NewUserWelcomeMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +14,14 @@ use App\Http\Controllers\PostsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
-route::post('/follow/{user}','FollowsController@create');
-
+route::get('/email',function(){
+   return new NewUserWelcomeMail();
+});
+route::post('/follow/{user}','FollowsController@store');
+Route::get('/','PostsController@index');
 route::get('/p/create','PostsController@create');
 route::post('/p','PostsController@store');
 route::get('/p/{post}','PostsController@show');
